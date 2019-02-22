@@ -31,3 +31,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+# Publish build artifacts to Azure Pipelines/TFS or a file share
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'ninject-fluent' 
+    #publishLocation: 'Azure Pipelines/TFS'
+    #targetPath: # Required when publishLocation == FilePath
+    #parallel: false # Optional
+    #parallelCount: # Optional
